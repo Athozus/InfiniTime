@@ -12,10 +12,10 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
 
-      class Settings : public Screen {
+      class SettingChimes : public Screen {
       public:
-        Settings(DisplayApp* app, Pinetime::Controllers::Settings& settingsController);
-        ~Settings() override;
+        SettingChimes(DisplayApp* app, Pinetime::Controllers::Settings& settingsController);
+        ~SettingChimes() override;
 
         bool OnTouchEvent(Pinetime::Applications::TouchEvents event) override;
 
