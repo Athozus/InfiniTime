@@ -265,6 +265,7 @@ namespace Pinetime {
 
         uint8_t clockFace = 0;
         ChimesFrequencyOption chimesFrequencyOption = ChimesFrequencyOption::None;
+        ChimesBehaviourMode chimesBehaviourMode = ChimesBehaviourMode::ShortVibe;
 
         PineTimeStyle PTS;
 

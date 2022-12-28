@@ -47,6 +47,7 @@
 #include "displayapp/screens/settings/SettingSetTime.h"
 #include "displayapp/screens/settings/SettingChimes.h"
 #include "displayapp/screens/settings/SettingChimesFrequency.h"
+#include "displayapp/screens/settings/SettingChimesBehaviour.h"
 #include "displayapp/screens/settings/SettingShakeThreshold.h"
 #include "displayapp/screens/settings/SettingBluetooth.h"
 
@@ -424,6 +425,10 @@ void DisplayApp::LoadApp(Apps app, DisplayApp::FullRefreshDirections direction) 
       break;
     case Apps::SettingChimesFrequency:
       currentScreen = std::make_unique<Screens::SettingChimesFrequency>(this, settingsController);
+      ReturnApp(Apps::SettingChimes, FullRefreshDirections::Down, TouchEvents::SwipeDown);
+      break;
+    case Apps::SettingChimesBehaviour:
+      currentScreen = std::make_unique<Screens::SettingChimesBehaviour>(this, settingsController);
       ReturnApp(Apps::SettingChimes, FullRefreshDirections::Down, TouchEvents::SwipeDown);
       break;
     case Apps::SettingShakeThreshold:
