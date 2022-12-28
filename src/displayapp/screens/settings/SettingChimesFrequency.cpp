@@ -1,4 +1,4 @@
-#include "displayapp/screens/settings/SettingChimes.h"
+#include "displayapp/screens/settings/SettingChimesFrequency.h"
 #include <lvgl/lvgl.h>
 #include "displayapp/DisplayApp.h"
 #include "displayapp/screens/Styles.h"
@@ -9,14 +9,14 @@ using namespace Pinetime::Applications::Screens;
 
 namespace {
   void event_handler(lv_obj_t* obj, lv_event_t event) {
-    auto* screen = static_cast<SettingChimes*>(obj->user_data);
+    auto* screen = static_cast<SettingChimesFrequency*>(obj->user_data);
     screen->UpdateSelected(obj, event);
   }
 }
 
-constexpr std::array<SettingChimes::Option, 3> SettingChimes::options;
+constexpr std::array<SettingChimesFrequency::Option, 3> SettingChimesFrequency::options;
 
-SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Settings& settingsController)
+SettingChimesFrequency::SettingChimesFrequency(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Settings& settingsController)
   : Screen(app), settingsController {settingsController} {
 
   lv_obj_t* container1 = lv_cont_create(lv_scr_act(), nullptr);
@@ -32,7 +32,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
   lv_cont_set_layout(container1, LV_LAYOUT_COLUMN_LEFT);
 
   lv_obj_t* title = lv_label_create(lv_scr_act(), nullptr);
-  lv_label_set_text_static(title, "Chimes");
+  lv_label_set_text_static(title, "Frequency");
   lv_label_set_align(title, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(title, lv_scr_act(), LV_ALIGN_IN_TOP_MID, 10, 15);
 
@@ -45,7 +45,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
   for (unsigned int i = 0; i < options.size(); i++) {
     cbOption[i] = lv_checkbox_create(container1, nullptr);
     lv_checkbox_set_text(cbOption[i], options[i].name);
-    if (settingsController.GetChimeOption() == options[i].chimesOption) {
+    if (settingsController.GetChimeOption() == options[i].chimesFrequencyOption) {
       lv_checkbox_set_checked(cbOption[i], true);
     }
     cbOption[i]->user_data = this;
@@ -54,17 +54,17 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
   }
 }
 
-SettingChimes::~SettingChimes() {
+SettingChimesFrequency::~SettingChimesFrequency() {
   lv_obj_clean(lv_scr_act());
   settingsController.SaveSettings();
 }
 
-void SettingChimes::UpdateSelected(lv_obj_t* object, lv_event_t event) {
+void SettingChimesFrequency::UpdateSelected(lv_obj_t* object, lv_event_t event) {
   if (event == LV_EVENT_VALUE_CHANGED) {
     for (uint8_t i = 0; i < options.size(); i++) {
       if (object == cbOption[i]) {
         lv_checkbox_set_checked(cbOption[i], true);
-        settingsController.SetChimeOption(options[i].chimesOption);
+        settingsController.SetChimeOption(options[i].chimesFrequencyOption);
       } else {
         lv_checkbox_set_checked(cbOption[i], false);
       }
