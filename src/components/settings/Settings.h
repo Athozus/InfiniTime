@@ -264,7 +264,7 @@ namespace Pinetime {
         Notification notificationStatus = Notification::On;
 
         uint8_t clockFace = 0;
-        ChimesFrequencyOption ChimesFrequencyOption = ChimesFrequencyOption::None;
+        ChimesFrequencyOption chimesFrequencyOption = ChimesFrequencyOption::None;
 
         PineTimeStyle PTS;
 
