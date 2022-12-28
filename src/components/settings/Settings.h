@@ -11,6 +11,7 @@ namespace Pinetime {
       enum class ClockType : uint8_t { H24, H12 };
       enum class Notification : uint8_t { On, Off, Sleep };
       enum class ChimesFrequencyOption : uint8_t { None, Hours, HalfHours };
+      enum class ChimesBehaviourMode : uint8_t { SingleVibe, DoubleVibe, LongVibe };
       enum class WakeUpMode : uint8_t {
         SingleTap = 0,
         DoubleTap = 1,
@@ -78,6 +79,16 @@ namespace Pinetime {
       };
       ChimesFrequencyOption GetChimeFrequencyOption() const {
         return settings.chimesFrequencyOption;
+      };
+      
+      void SetChimeBehaviourMode(ChimesBehaviourMode chimeBehaviourMode) {
+        if (chimeBehaviourMode != settings.chimesBehaviourMode) {
+          settingsChanged = true;
+        }
+        settings.chimesBehaviourMode = chimeBehaviourMode;
+      };
+      ChimesBehaviourMode GetChimeBehaviourMode() const {
+        return settings.chimesBehaviourMode;
       };
 
       void SetPTSColorTime(Colors colorTime) {
