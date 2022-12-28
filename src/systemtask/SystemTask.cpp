@@ -397,7 +397,19 @@ void SystemTask::Work() {
               GoToRunning();
               displayApp.PushMessage(Pinetime::Applications::Display::Messages::Clock);
             }
-            motorController.RunForDuration(35);
+            
+            if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::SingleVibe) {
+                motorController.RunForDuration(35);
+            }
+            
+            else if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::DoubleVibe) {
+                motorController.RunForDuration(35);
+                motorController.RunForDuration(35);
+            }
+            
+            else if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::LongVibe) {
+                motorController.RunForDuration(500);
+            }
           }
           break;
         case Messages::OnNewHalfHour:
@@ -409,7 +421,19 @@ void SystemTask::Work() {
               GoToRunning();
               displayApp.PushMessage(Pinetime::Applications::Display::Messages::Clock);
             }
-            motorController.RunForDuration(35);
+            
+            if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::SingleVibe) {
+                motorController.RunForDuration(35);
+            }
+            
+            else if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::DoubleVibe) {
+                motorController.RunForDuration(35);
+                motorController.RunForDuration(35);
+            }
+            
+            else if (settingsController.GetChimeBehaviourMode() == Controllers::Settings::ChimesBehaviourMode::LongVibe) {
+                motorController.RunForDuration(500);
+            }
           }
           break;
         case Messages::OnChargingEvent:
