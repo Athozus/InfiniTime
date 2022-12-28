@@ -420,6 +420,8 @@ list(APPEND SOURCE_FILES
         displayapp/screens/settings/SettingSetDate.cpp
         displayapp/screens/settings/SettingSetTime.cpp
         displayapp/screens/settings/SettingChimes.cpp
+        displayapp/screens/settings/SettingChimesFrequency.cpp
+        displayapp/screens/settings/SettingChimesBehaviour.cpp
         displayapp/screens/settings/SettingShakeThreshold.cpp
         displayapp/screens/settings/SettingBluetooth.cpp
 
@@ -1165,6 +1167,8 @@ set_source_files_properties(
         ${CMAKE_CURRENT_SOURCE_DIR}/components/ble/NavigationService.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/components/ble/NavigationService.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingChimes.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingChimesFrequency.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingChimesBehaviour.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingDisplay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingSetDate.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/displayapp/screens/settings/SettingSetTime.cpp
