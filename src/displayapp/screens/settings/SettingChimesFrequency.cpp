@@ -45,7 +45,7 @@ SettingChimesFrequency::SettingChimesFrequency(Pinetime::Applications::DisplayAp
   for (unsigned int i = 0; i < options.size(); i++) {
     cbOption[i] = lv_checkbox_create(container1, nullptr);
     lv_checkbox_set_text(cbOption[i], options[i].name);
-    if (settingsController.GetChimeOption() == options[i].chimesFrequencyOption) {
+    if (settingsController.GetChimeFrequencyOption() == options[i].chimesFrequencyOption) {
       lv_checkbox_set_checked(cbOption[i], true);
     }
     cbOption[i]->user_data = this;
@@ -64,7 +64,7 @@ void SettingChimesFrequency::UpdateSelected(lv_obj_t* object, lv_event_t event) 
     for (uint8_t i = 0; i < options.size(); i++) {
       if (object == cbOption[i]) {
         lv_checkbox_set_checked(cbOption[i], true);
-        settingsController.SetChimeOption(options[i].chimesFrequencyOption);
+        settingsController.SetChimeFrequencyOption(options[i].chimesFrequencyOption);
       } else {
         lv_checkbox_set_checked(cbOption[i], false);
       }
