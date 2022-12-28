@@ -17,7 +17,8 @@ namespace {
 constexpr std::array<SettingChimesBehaviour::Option, 3> SettingChimesBehaviour::options;
 
 SettingChimesBehaviour::SettingChimesBehaviour(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Settings& settingsController)
-  : Screen(app), settingsController {settingsController} {
+  : Screen(app),
+  settingsController {settingsController} {
 
   lv_obj_t* container1 = lv_cont_create(lv_scr_act(), nullptr);
 
